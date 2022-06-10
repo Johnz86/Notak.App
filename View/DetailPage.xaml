@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notak.View.DetailPage"
+             xmlns:viewmodel="clr-namespace:Notak.ViewModel"
+             x:DataType="viewmodel:DetailViewModel"
+             Title="DetailPage">
+    <StackLayout Padding="20">
+        <Label Text="{Binding Text}"
+               Padding="0, 0, 0, 24"
+               FontSize="24" />
+        <Button Text="Go Back"
+                Command="{Binding GoBackCommand}"/>
+    </StackLayout>
+</ContentPage>

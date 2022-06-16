@@ -13,7 +13,7 @@
   <a href="https://github.com/Johnz86/Notak.App/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/Johnz86/Notak.Appe" alt="contributors" />
   </a>
-  <a href="">
+  <a href="https://github.com/Johnz86/Notak.App/commits/master">
     <img src="https://img.shields.io/github/last-commit/Johnz86/Notak.App" alt="last update" />
   </a>
   <a href="https://github.com/Johnz86/Notak.App/network/members">
@@ -25,7 +25,7 @@
   <a href="https://github.com/Johnz86/Notak.App/issues/">
     <img src="https://img.shields.io/github/issues/Johnz86/Notak.App" alt="open issues" />
   </a>
-  <a href="https://github.com/Johnz86/Notak.App/blob/master/LICENSE">
+  <a href="https://github.com/Johnz86/Notak.App/blob/master/LICENSE.txt">
     <img src="https://img.shields.io/github/license/Johnz86/Notak.App.svg" alt="license" />
   </a>
 </p>

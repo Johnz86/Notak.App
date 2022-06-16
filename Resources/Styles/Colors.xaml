@@ -40,6 +40,15 @@
     <Color x:Key="Blue100Accent">#3E8EED</Color>
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
+    
     <Color x:Key="Danger">#DD0000</Color>
+    
+    <Color x:Key="Background_Dark">#081B25</Color>
+    <Color x:Key="Background_Mid">#152C39</Color>
+    <Color x:Key="TabOff">#91A7B7</Color>
+    <!-- light theme alternatives -->
+    <Color x:Key="DarkGray">#212125</Color>
+    <Color x:Key="MidGray">#CFCFD3</Color>
+    <Color x:Key="LightGray">#EFEFEF</Color>
 
 </ResourceDictionary>

@@ -4,11 +4,62 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:Notak.View"
-    Shell.FlyoutBehavior="Disabled">
+    FlyoutBackgroundColor="{StaticResource Background_Mid}"
+    FlyoutWidth="68"
+    FlyoutBehavior="{OnIdiom Phone=Disabled, Default=Locked}">
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid RowDefinitions="68">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="settings_48dp.png"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="40"
+                       HeightRequest="40"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+    <!-- Desktop -->
+    <FlyoutItem Title="Home" FlyoutIcon="addlist_48dp.png">
+        <ShellContent ContentTemplate="{DataTemplate view:MainPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Tags" FlyoutIcon="tags_48dp.png">
+        <ShellContent ContentTemplate="{DataTemplate view:TagsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Settings" FlyoutIcon="settings_48dp.png" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate view:SettingsPage}"/>
+    </FlyoutItem>
 
+    <!-- Phone -->
+    <TabBar x:Name="PhoneTabs">
+        <Tab Title="Home" Icon="addlist_48dp.png">
+            <ShellContent ContentTemplate="{DataTemplate view:MainPage}"/>
+        </Tab>
+        <Tab Title="Tags" Icon="tags_48dp.png">
+            <ShellContent ContentTemplate="{DataTemplate view:TagsPage}"/>
+        </Tab>
+        <Tab Title="Settings" Icon="settings_48dp.png">
+            <ShellContent ContentTemplate="{DataTemplate view:SettingsPage}"/>
+        </Tab>
+    </TabBar>
+    
     <ShellContent
         Title="Notak"
         ContentTemplate="{DataTemplate view:MainPage}"
         Route="MainPage" />
-
+    
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid WidthRequest="44" HeightRequest="68"
+                  ColumnDefinitions="44" RowDefinitions="68">
+                <Image Source="{Binding FlyoutIcon}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"                               
+                               HeightRequest="38"
+                               WidthRequest="38"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 </Shell>

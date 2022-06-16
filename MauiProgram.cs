@@ -17,6 +17,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<NoteTaskViewModel>();
 
+        builder.Services.AddSingleton<SettingsPage>();
+        builder.Services.AddSingleton<TagsPage>();
 
         builder.Services.AddTransient<DetailPage>();
         builder.Services.AddTransient<DetailViewModel>();

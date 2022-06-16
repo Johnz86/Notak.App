@@ -10,7 +10,7 @@
           Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
-
+            
         <Entry Placeholder="Enter task"
                Text="{Binding Text}"
                ReturnCommand="{Binding AddCommand}"
@@ -25,9 +25,9 @@
                         ItemsSource="{Binding Items}"
                         SelectionMode="None">
             <CollectionView.EmptyView >
-                <ContentView>
-                    <StackLayout HorizontalOptions="CenterAndExpand"
-                             VerticalOptions="CenterAndExpand">
+
+                <StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand" >
                         <Label Text="The list of notes is empty."
                            Margin="10,25,10,10"
                            FontAttributes="Bold"
@@ -39,9 +39,13 @@
                            FontSize="12"
                            HorizontalOptions="Fill"
                            HorizontalTextAlignment="Center" />
-                        <Image Margin="12" Source="addlist.png" WidthRequest="40" HeightRequest="40"/>
+                        <Image Margin="12" 
+                            Source="addlist.png" 
+                            WidthRequest="40" 
+                            HeightRequest="40"/>
                     </StackLayout>
-                </ContentView>
+                </StackLayout>
+
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type x:String}">

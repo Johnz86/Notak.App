@@ -10,17 +10,12 @@
           Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
-            
-        <Entry Placeholder="Enter task"
-               Text="{Binding Text}"
-               ReturnCommand="{Binding AddCommand}"
-               Grid.Row="1" Grid.Column="0"/>
-
-        <Button Text="Add"
-                Command="{Binding AddCommand}"
-                Grid.Row="1"
-                Grid.Column="1"/>
-
+        <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                <Entry Placeholder="Enter task" Text="{Binding Text}" HorizontalOptions="FillAndExpand" ReturnCommand="{Binding AddCommand}" Margin="0,0,20,0"/>
+                <Button Text="Add" Command="{Binding AddCommand}" />
+            </StackLayout>
+        </StackLayout>
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
                         ItemsSource="{Binding Items}"
                         SelectionMode="None">
@@ -31,12 +26,12 @@
                         <Label Text="The list of notes is empty."
                            Margin="10,25,10,10"
                            FontAttributes="Bold"
-                           FontSize="18"
+                           FontSize="24"
                            HorizontalOptions="Fill"
                            HorizontalTextAlignment="Center" />
                         <Label Text="Do you want to add a note?"
                            FontAttributes="Italic"
-                           FontSize="12"
+                           FontSize="16"
                            HorizontalOptions="Fill"
                            HorizontalTextAlignment="Center" />
                         <Image Margin="12" 
@@ -59,8 +54,8 @@
                                            CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid Padding="0,5">
-                            <Frame>
+                        <Grid Padding="0, 0, 0, 4">
+                            <Frame Padding="16, 8">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NoteTaskViewModel}}, Path=TapCommand}"

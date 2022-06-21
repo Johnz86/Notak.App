@@ -45,6 +45,7 @@
     
     <Color x:Key="Background_Dark">#081B25</Color>
     <Color x:Key="Background_Mid">#152C39</Color>
+    <Color x:Key="Background_Blue">#223344</Color>
     <Color x:Key="TabOff">#91A7B7</Color>
     <!-- light theme alternatives -->
     <Color x:Key="DarkGray">#212125</Color>

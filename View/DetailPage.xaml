@@ -9,7 +9,17 @@
         <Label Text="{Binding Text}"
                Padding="0, 0, 0, 24"
                FontSize="24" />
-        <Button Text="Go Back"
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Button Text="Go Back"
+                HorizontalOptions="Start"
                 Command="{Binding GoBackCommand}"/>
+            <Button Text="Edit"
+                HorizontalOptions="StartAndExpand"
+                Command="{Binding GoBackCommand}"/>            
+            <Button Text="Delete"
+                BackgroundColor="{StaticResource Danger}"
+                HorizontalOptions="End"
+                Command="{Binding GoBackCommand}"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

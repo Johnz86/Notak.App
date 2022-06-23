@@ -8,9 +8,9 @@ public class Database
     {
         var dataDir = FileSystem.AppDataDirectory;
         var databasePath = Path.Combine(dataDir, "Notak.db");
-
+        System.Diagnostics.Debug.WriteLine($"Database path: {databasePath}");
         string _dbEncryptionKey = SecureStorage.GetAsync("dbKey").Result;
-
+        System.Diagnostics.Debug.WriteLine($"Key: {_dbEncryptionKey}");
         if (string.IsNullOrEmpty(_dbEncryptionKey))
         {
             Guid g = new Guid();

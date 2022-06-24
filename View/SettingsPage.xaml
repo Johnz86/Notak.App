@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Notak.ViewModel"
+             x:DataType="viewmodel:NoteTaskViewModel"
+             Title="Application Settings"
              x:Class="Notak.View.SettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Show Settings Page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="20">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Button Text="Delete all data"
+                BackgroundColor="{StaticResource Danger}"
+                HorizontalOptions="Start"
+                Command="{Binding CleanUpCommand}"/>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

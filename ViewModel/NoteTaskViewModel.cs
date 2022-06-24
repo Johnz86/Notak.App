@@ -6,28 +6,25 @@ namespace Notak.ViewModel;
 
 public partial class NoteTaskViewModel: BaseViewModel
 {
-    readonly Database _database;
-    public ObservableCollection<NoteTask> NoteTasks { get; set; } = new();
+    readonly StoreData _database;
     
-    public NoteTaskViewModel()
+    public NoteTaskViewModel(StoreData storeData)
     {
-        Items = new ObservableCollection<string>();
-        _database = new Database();
+        IsBusy = true;
+        Title = "Notak - Simple Notes";
+        _database = storeData;
         _ = Initialise();
+        IsBusy = false;
     }
 
     async Task Initialise()
     { 
-        var notes = await _database.GetTodos();
-        foreach (var note in notes)
-        {
-            NoteTasks.Add(note);
-            Items.Add(note.Title);
-        }
+        var notes = await _database.GetNotes();
+        NoteTasks = new(notes);
     }
 
     [ObservableProperty]
-    ObservableCollection<string> items;
+    ObservableCollection<NoteTask> noteTasks;
 
     [ObservableProperty]
     string text;
@@ -43,19 +40,19 @@ public partial class NoteTaskViewModel: BaseViewModel
             Done = false,
             Due = DateTime.Now,
         };
-        var inserted = await _database.AddTodo(note);
+        var inserted = await _database.AddNote(note);
         if (inserted != 0) {
-            Items.Add(Text);
+            NoteTasks.Add(note);
         }
         Text = string.Empty;
     }
 
     [ICommand]
-    async void Delete(string s)
+    async void Delete(int id)
     {
-        if (Items.Contains(s))
+        if (NoteTasks.Count > 0)
         {
-            Items.Remove(s);
+            NoteTasks.RemoveAt(id);
         }
     }
 
@@ -63,6 +60,13 @@ public partial class NoteTaskViewModel: BaseViewModel
     async Task Tap(string s)
     {
         await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
+    }
+
+    [ICommand]
+    async Task CleanUp() 
+    { 
+        NoteTasks.Clear();
+        await _database.CleanUp();
     }
 
 }

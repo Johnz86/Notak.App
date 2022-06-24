@@ -1,5 +1,5 @@
 ﻿using Notak.View;
-
+using Notak.Services;
 namespace Notak;
 
 public static class MauiProgram
@@ -14,6 +14,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		builder.Services.AddSingleton<StoreData>();
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<NoteTaskViewModel>();
 

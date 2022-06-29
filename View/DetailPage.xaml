@@ -4,22 +4,23 @@
              x:Class="Notak.View.DetailPage"
              xmlns:viewmodel="clr-namespace:Notak.ViewModel"
              x:DataType="viewmodel:DetailViewModel"
-             Title="DetailPage">
-    <StackLayout Padding="20">
-        <Label Text="{Binding Text}"
-               Padding="0, 0, 0, 24"
-               FontSize="24" />
+             Title="Note details:">
+    <StackLayout Padding="10" Spacing="10">
+        <Label Text="{Binding NoteTask.Due}" Margin="15, 0, 0, -10" FontSize="Caption"/>
+        <Frame Padding="15, 5">
+            <Label Text="{Binding NoteTask.Title}" FontSize="20" />
+        </Frame>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-            <Button Text="Go Back"
-                HorizontalOptions="Start"
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="StartAndExpand">
+                <Button Text="Go Back"
                 Command="{Binding GoBackCommand}"/>
-            <Button Text="Edit"
-                HorizontalOptions="StartAndExpand"
-                Command="{Binding GoBackCommand}"/>            
+                <Button Text="Edit"
+                Command="{Binding EditCommand}"/>
+            </HorizontalStackLayout>
             <Button Text="Delete"
                 BackgroundColor="{StaticResource Danger}"
                 HorizontalOptions="End"
-                Command="{Binding GoBackCommand}"/>
+                Command="{Binding DeleteCommand}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

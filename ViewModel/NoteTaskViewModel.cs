@@ -1,7 +1,6 @@
 ﻿using Notak.Model;
 using Notak.Services;
 using Notak.View;
-
 namespace Notak.ViewModel;
 
 public partial class NoteTaskViewModel: BaseViewModel
@@ -49,17 +48,21 @@ public partial class NoteTaskViewModel: BaseViewModel
 
     [ICommand]
     async void Delete(int id)
-    {
+{
         if (NoteTasks.Count > 0)
         {
+            await _database.DeleteNote(NoteTasks.ElementAt(id));
             NoteTasks.RemoveAt(id);
         }
     }
 
     [ICommand]
-    async Task Tap(string s)
+    async Task Tap(NoteTask note)
     {
-        await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
+        Debug.WriteLine($"Tapped: {note.Title}");
+        await Shell.Current.GoToAsync(nameof(DetailPage), true, new Dictionary<string, object>{
+            {"NoteTask", note }
+        });
     }
 
     [ICommand]
